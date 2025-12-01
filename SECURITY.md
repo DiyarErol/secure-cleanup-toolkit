@@ -2,7 +2,7 @@
 
 ## 🔒 Reporting a Vulnerability
 
-We take security seriously. If you discover a security vulnerability in **AxiomBridge-SeverityLab**, please report it responsibly.
+I take security seriously. If you discover a security vulnerability in the **Secure Cleanup Toolkit** project, please report it responsibly.
 
 ### How to Report
 
@@ -10,8 +10,8 @@ We take security seriously. If you discover a security vulnerability in **AxiomB
 
 Instead, please contact us privately:
 
-- **Email**: security@axiombridge.dev (or create a private security advisory on GitHub)
-- **GitHub Security Advisory**: [Create a private advisory](https://github.com/USERNAME/MindForge-EventSeverity/security/advisories/new)
+- **Email**: security@diyar.dev (or create a private security advisory on GitHub)
+- **GitHub Security Advisory**: [Create a private advisory](https://github.com/USERNAME/secure-cleanup-toolkit/security/advisories/new)
 
 ### What to Include
 
@@ -135,4 +135,4 @@ We thank the following researchers for responsible disclosure:
 ---
 
 **Last Updated**: December 1, 2025  
-**Contact**: security@axiombridge.dev
+**Contact**: security@diyar.dev

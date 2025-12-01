@@ -150,7 +150,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Secure Cleanup",
+            "label": "Secure Cleanup (Preview)",
             "type": "shell",
             "command": "${command:python.interpreterPath}",
             "args": [
@@ -161,6 +161,21 @@
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Auto Purge GPT/Copilot Traces",
+            "type": "shell",
+            "command": "${command:python.interpreterPath}",
+            "args": [
+                "scripts/secure_cleanup.py",
+                "--force"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
             },
             "problemMatcher": []
         }

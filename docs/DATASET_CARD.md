@@ -1,8 +1,8 @@
-# Dataset Card: AxiomBridge-SeverityLab
+# Dataset Card: Secure Cleanup Toolkit
 
 ## Dataset Description
 
-**Dataset Name:** AxiomBridge-SeverityLab Video Severity Dataset  
+**Dataset Name:** Secure Cleanup Toolkit Video Severity Dataset  
 **Version:** 0.1.0  
 **Last Updated:** December 2025  
 **Contact:** [Your contact information]
@@ -232,12 +232,12 @@ Please report data quality issues, labeling errors, or other concerns by:
 If you use this dataset in your research, please cite:
 
 ```bibtex
-@dataset{axiombridge_severitylab_2025,
-  title={AxiomBridge-SeverityLab Video Severity Dataset},
+@dataset{secure_cleanup_toolkit_2025,
+  title={Secure Cleanup Toolkit Video Severity Dataset},
   author={[Your Name/Team]},
   year={2025},
   version={0.1.0},
-  url={https://github.com/yourusername/axiombridge-severitylab}
+  url={https://github.com/DiyarErol/secure-cleanup-toolkit}
 }
 ```
 

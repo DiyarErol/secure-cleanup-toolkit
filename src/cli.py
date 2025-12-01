@@ -1,4 +1,4 @@
-"""Command-line interface for AxiomBridge-SeverityLab."""
+"""Command-line interface for Secure Cleanup Toolkit."""
 
 import argparse
 import sys
@@ -11,7 +11,7 @@ from src.utils.seed import seed_everything
 def main() -> None:
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
-        description="AxiomBridge-SeverityLab: Video Severity Classification",
+        description="Secure Cleanup Toolkit by Diyar",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 

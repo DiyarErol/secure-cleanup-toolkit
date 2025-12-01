@@ -1,6 +1,6 @@
 # Publishing Guide — MindForge EventSeverity
 
-This guide provides step-by-step instructions for publishing the **AxiomBridge-SeverityLab** project to GitHub as a stable, production-ready open-source repository.
+This guide provides step-by-step instructions for publishing the **Secure Cleanup Toolkit** project to GitHub as a stable, production-ready open-source repository.
 
 ## 📋 Prerequisites
 
@@ -15,7 +15,7 @@ This guide provides step-by-step instructions for publishing the **AxiomBridge-S
 
 ```bash
 # Navigate to project root
-cd C:\Users\erold\Desktop\MindForge-EventSeverity
+cd C:\Users\erold\Desktop\secure-cleanup-toolkit
 
 # Initialize Git repository
 git init
@@ -24,7 +24,7 @@ git init
 git add -A
 
 # Create initial commit
-git commit -m "Initial commit: AxiomBridge-SeverityLab v1.0"
+git commit -m "Initial commit: Secure Cleanup Toolkit v1.0"
 ```
 
 **What this does:**
@@ -37,7 +37,7 @@ git commit -m "Initial commit: AxiomBridge-SeverityLab v1.0"
 ## 🌐 Step 2: Create GitHub Repository
 
 1. Go to [github.com/new](https://github.com/new)
-2. Repository name: `MindForge-EventSeverity`
+2. Repository name: `secure-cleanup-toolkit`
 3. Description: *Production-grade severity classification for autonomous risk understanding*
 4. Visibility: **Public** (or Private)
 5. **DO NOT** initialize with README, license, or `.gitignore` (we already have these)
@@ -52,7 +52,7 @@ git commit -m "Initial commit: AxiomBridge-SeverityLab v1.0"
 git branch -M main
 
 # Add GitHub remote (replace USERNAME with your GitHub username)
-git remote add origin https://github.com/USERNAME/MindForge-EventSeverity.git
+git remote add origin https://github.com/USERNAME/secure-cleanup-toolkit.git
 
 # Verify remote URL
 git remote -v
@@ -60,8 +60,8 @@ git remote -v
 
 **Expected output:**
 ```
-origin  https://github.com/USERNAME/MindForge-EventSeverity.git (fetch)
-origin  https://github.com/USERNAME/MindForge-EventSeverity.git (push)
+origin  https://github.com/USERNAME/secure-cleanup-toolkit.git (fetch)
+origin  https://github.com/USERNAME/secure-cleanup-toolkit.git (push)
 ```
 
 ---
@@ -121,7 +121,7 @@ git push origin v1.0.0
 4. Description (use `.github/release_template.md`):
 
 ```markdown
-## 🚀 AxiomBridge-SeverityLab — v1.0.0 Release
+## 🚀 Secure Cleanup Toolkit — v1.0.0 Release
 
 ### Highlights
 - ✅ Production-grade severity classification framework
@@ -136,8 +136,8 @@ git push origin v1.0.0
 
 ### Quick Start
 \`\`\`bash
-git clone https://github.com/USERNAME/MindForge-EventSeverity.git
-cd MindForge-EventSeverity
+git clone https://github.com/USERNAME/secure-cleanup-toolkit.git
+cd secure-cleanup-toolkit
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -e .
@@ -181,8 +181,8 @@ Clone the repository fresh and test:
 
 ```bash
 # Clone from GitHub
-git clone https://github.com/USERNAME/MindForge-EventSeverity.git
-cd MindForge-EventSeverity
+git clone https://github.com/USERNAME/secure-cleanup-toolkit.git
+cd secure-cleanup-toolkit
 
 # Setup environment
 py -3.11 -m venv .venv
@@ -216,7 +216,7 @@ For distributing as a Python package:
    ```toml
    [project.scripts]
    secure-cleanup = "scripts.secure_cleanup:main"
-   axiombridge-train = "src.cli:main"
+   secure-cleanup = "src.cli:main"
    ```
 
 2. Build package:
@@ -232,7 +232,7 @@ For distributing as a Python package:
 
 4. Install via pip:
    ```bash
-   pip install axiombridge-severitylab
+   pip install secure-cleanup-toolkit
    ```
 
 ---

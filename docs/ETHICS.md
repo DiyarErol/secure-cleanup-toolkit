@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document outlines ethical considerations, usage boundaries, and responsible practices for the AxiomBridge-SeverityLab project. All users, contributors, and researchers working with this codebase and associated data must adhere to these guidelines.
+This document outlines ethical considerations, usage boundaries, and responsible practices for the Secure Cleanup Toolkit project by Diyar. All users, contributors, and researchers working with this codebase and associated data must adhere to these guidelines.
 
 ## Core Principles
 

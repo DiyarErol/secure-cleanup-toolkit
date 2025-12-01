@@ -1,6 +1,6 @@
 # GitHub Repository Setup — Git Commands
 
-This file contains the complete git workflow for publishing **MindForge-EventSeverity** to GitHub.
+This file contains the complete git workflow for publishing **Secure Cleanup Toolkit** to GitHub.
 
 ---
 
@@ -10,7 +10,7 @@ This file contains the complete git workflow for publishing **MindForge-EventSev
 - [x] Tests passing (`pytest -q`)
 - [x] Secure cleanup passed (`python scripts/secure_cleanup.py --preview`)
 - [x] GitHub account ready
-- [x] Repository name decided: `MindForge-EventSeverity`
+- [x] Repository name decided: `secure-cleanup-toolkit`
 
 ---
 
@@ -20,7 +20,7 @@ This file contains the complete git workflow for publishing **MindForge-EventSev
 
 ```bash
 # Navigate to project root
-cd C:\Users\erold\Desktop\MindForge-EventSeverity
+cd C:\Users\erold\Desktop\secure-cleanup-toolkit
 
 # Initialize Git
 git init
@@ -33,7 +33,7 @@ git config user.email "your.email@example.com"
 git add -A
 
 # Create initial commit
-git commit -m "Initial commit: AxiomBridge-SeverityLab v1.0 with secure cleanup automation"
+git commit -m "Initial commit: Secure Cleanup Toolkit v1.0 with secure cleanup automation"
 ```
 
 **Output**: `[main (root-commit) abc1234] Initial commit: ...`
@@ -56,7 +56,7 @@ git branch -M main
 **Go to**: [github.com/new](https://github.com/new)
 
 **Settings**:
-- **Name**: `MindForge-EventSeverity`
+- **Name**: `secure-cleanup-toolkit`
 - **Description**: `Production-grade severity classification for autonomous risk understanding`
 - **Visibility**: Public
 - **Initialize**: DO NOT check any boxes (no README, license, or .gitignore)
@@ -69,7 +69,7 @@ git branch -M main
 
 ```bash
 # Replace USERNAME with your GitHub username
-git remote add origin https://github.com/USERNAME/MindForge-EventSeverity.git
+git remote add origin https://github.com/USERNAME/secure-cleanup-toolkit.git
 
 # Verify remote URL
 git remote -v
@@ -77,8 +77,8 @@ git remote -v
 
 **Expected output**:
 ```
-origin  https://github.com/USERNAME/MindForge-EventSeverity.git (fetch)
-origin  https://github.com/USERNAME/MindForge-EventSeverity.git (push)
+origin  https://github.com/USERNAME/secure-cleanup-toolkit.git (fetch)
+origin  https://github.com/USERNAME/secure-cleanup-toolkit.git (push)
 ```
 
 ---
@@ -98,12 +98,12 @@ Delta compression using up to 8 threads
 Compressing objects: 100% (120/120), done.
 Writing objects: 100% (150/150), 500 KiB | 2 MiB/s, done.
 Total 150 (delta 30), reused 0 (delta 0), pack-reused 0
-To https://github.com/USERNAME/MindForge-EventSeverity.git
+To https://github.com/USERNAME/secure-cleanup-toolkit.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
 
-**Verify**: Visit `https://github.com/USERNAME/MindForge-EventSeverity` — all files should appear.
+**Verify**: Visit `https://github.com/USERNAME/secure-cleanup-toolkit` — all files should appear.
 
 ---
 
@@ -120,7 +120,7 @@ git push origin v1.0.0
 **Output**:
 ```
 Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://github.com/USERNAME/MindForge-EventSeverity.git
+To https://github.com/USERNAME/secure-cleanup-toolkit.git
  * [new tag]         v1.0.0 -> v1.0.0
 ```
 
@@ -251,7 +251,7 @@ git push origin --tags
 ```bash
 ssh-keygen -t ed25519 -C "your.email@example.com"
 cat ~/.ssh/id_ed25519.pub  # Copy this to GitHub Settings → SSH keys
-git remote set-url origin git@github.com:USERNAME/MindForge-EventSeverity.git
+git remote set-url origin git@github.com:USERNAME/secure-cleanup-toolkit.git
 ```
 
 ### Push Rejected
@@ -302,6 +302,6 @@ Your repository is now live and ready for collaboration.
 
 ---
 
-**Repository URL**: `https://github.com/USERNAME/MindForge-EventSeverity`
+**Repository URL**: `https://github.com/USERNAME/secure-cleanup-toolkit`
 
 For detailed publishing guide, see [docs/PUBLISH.md](../docs/PUBLISH.md).

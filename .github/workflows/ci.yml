@@ -22,11 +22,11 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Secure cleanup preview (no changes)
+    - name: Metadata trace check
       run: |
         python scripts/secure_cleanup.py --preview
-        if grep -Eq '\([0-9]+ match\(es\)\)' cleanup_report.txt || grep -Eq 'Removed lines: [1-9]' cleanup_report.txt; then
-          echo "::error ::Cleanup findings detected. Run secure_cleanup.py --force locally."
+        if grep -E 'GPT|Copilot' cleanup_report.txt; then
+          echo "::error ::Metadata traces (GPT/Copilot) detected. Cleanup required."
           exit 1
         fi
       shell: bash

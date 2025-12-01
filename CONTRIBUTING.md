@@ -1,4 +1,4 @@
-# Contributing to AxiomBridge-SeverityLab
+# Contributing to Secure Cleanup Toolkit
 
 Thank you for your interest in contributing! This document provides guidelines for contributing to the project.
 
@@ -13,7 +13,7 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 ### 1. Reporting Bugs
 
 Before creating a bug report:
-- Check [existing issues](https://github.com/USERNAME/MindForge-EventSeverity/issues) to avoid duplicates
+- Check [existing issues](https://github.com/USERNAME/secure-cleanup-toolkit/issues) to avoid duplicates
 - Use the bug report template
 - Include detailed reproduction steps
 
@@ -63,11 +63,11 @@ Feature requests are welcome! Please:
 ```bash
 # Fork the repository on GitHub
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/MindForge-EventSeverity.git
-cd MindForge-EventSeverity
+git clone https://github.com/YOUR_USERNAME/secure-cleanup-toolkit.git
+cd secure-cleanup-toolkit
 
 # Add upstream remote
-git remote add upstream https://github.com/USERNAME/MindForge-EventSeverity.git
+git remote add upstream https://github.com/USERNAME/secure-cleanup-toolkit.git
 
 # Create virtual environment
 py -3.11 -m venv .venv
@@ -292,8 +292,8 @@ Contributors will be:
 
 ## 📞 Getting Help
 
-- **Questions**: Open a [Discussion](https://github.com/USERNAME/MindForge-EventSeverity/discussions)
-- **Bugs**: Open an [Issue](https://github.com/USERNAME/MindForge-EventSeverity/issues)
+- **Questions**: Open a [Discussion](https://github.com/USERNAME/secure-cleanup-toolkit/discussions)
+- **Bugs**: Open an [Issue](https://github.com/USERNAME/secure-cleanup-toolkit/issues)
 - **Chat**: Join our [Discord/Slack] (if available)
 
 ---

@@ -3,14 +3,14 @@ requires = ["setuptools>=65.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "axiombridge-severitylab"
+name = "secure-cleanup-toolkit"
 version = "0.1.0"
 description = "Production-grade severity modeling for autonomous risk understanding"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
-    {name = "AxiomBridge Team"}
+    {name = "Diyar"}
 ]
 keywords = ["severity", "video-classification", "risk-modeling", "deep-learning"]
 classifiers = [
@@ -54,10 +54,10 @@ wandb = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/axiombridge-severitylab"
-Documentation = "https://github.com/yourusername/axiombridge-severitylab/blob/main/README.md"
-Repository = "https://github.com/yourusername/axiombridge-severitylab"
-Issues = "https://github.com/yourusername/axiombridge-severitylab/issues"
+Homepage = "https://github.com/DiyarErol/secure-cleanup-toolkit"
+Documentation = "https://github.com/DiyarErol/secure-cleanup-toolkit/blob/main/README.md"
+Repository = "https://github.com/DiyarErol/secure-cleanup-toolkit"
+Issues = "https://github.com/DiyarErol/secure-cleanup-toolkit/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]

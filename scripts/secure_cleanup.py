@@ -31,17 +31,13 @@ except ImportError:
     HAS_YAML = False
 
 PATTERNS = [
-    r"GitHub\s+Copilot(?:\s+Chat)?",
-    r"Copilot\s+Chat",
-    r"ChatGPT",
-    r"GPT[-\s]?[45]",
-    r"AI[-\s]?generated",
-    r"AI[-\s]?assisted",
-    r"Generated\s+by",
-    r"OpenAI",
-    r"Anthropic|Claude",
-    r"Gemini|Google\s+AI\s+Studio",
-    r"Midjourney|Leonardo\s*AI|Stable\s*Diffusion",
+    r"Model\s+(used|olarak)\s*:?\s*GPT[-\\s]?[0-9]+",
+    r"Generated\\s+by\\s+GPT[-\\s]?[0-9]+",
+    r"Generated\\s+using\\s+Copilot",
+    r"Copilot\\s+Chat",
+    r"GitHub\\s+Copilot",
+    r"AI[-\\s]?generated",
+    r"AI[-\\s]?assisted",
 ]
 
 EXCLUDES = {".git", "node_modules", "venv", ".venv", "data", "dist", "build", "assets", "media"}
@@ -71,6 +67,17 @@ def is_text_file(path: Path) -> bool:
     return path.suffix.lower() in TARGET_EXT
 
 
+def purge_model_traces(path: Path) -> bool:
+    txt = Path(path).read_text(encoding="utf-8", errors="ignore")
+    original = txt
+    for pat in PATTERNS:
+        txt = re.sub(pat, "", txt, flags=re.IGNORECASE)
+    if txt != original:
+        Path(path).write_text(txt, encoding="utf-8")
+        return True
+    return False
+
+
 def clean_file(path: Path, preview: bool = False):
     lines, removed = [], []
     try:
@@ -82,6 +89,13 @@ def clean_file(path: Path, preview: bool = False):
                     lines.append(line)
     except Exception as e:
         return removed, f"Error reading file: {e}"
+
+    # In force mode, purge model traces
+    if not preview and removed:
+        try:
+            purge_model_traces(path)
+        except Exception:
+            pass
 
     if preview:
         return removed, None

@@ -1,8 +1,8 @@
-# AxiomBridge-SeverityLab
+# Secure Cleanup Toolkit
 
 **Production-grade severity classification for autonomous risk understanding**
 
-[![CI](https://github.com/USERNAME/MindForge-EventSeverity/actions/workflows/ci.yml/badge.svg)](https://github.com/USERNAME/MindForge-EventSeverity/actions)
+[![CI](https://github.com/USERNAME/secure-cleanup-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/USERNAME/secure-cleanup-toolkit/actions)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -43,8 +43,8 @@ A comprehensive, research-grade framework for video-based severity classificatio
 
 ```powershell
 # Clone the repository
-git clone https://github.com/yourusername/axiombridge-severitylab.git
-cd axiombridge-severitylab
+git clone https://github.com/DiyarErol/secure-cleanup-toolkit.git
+cd secure-cleanup-toolkit
 
 # Create virtual environment
 py -3.11 -m venv .venv
@@ -81,19 +81,19 @@ python -m src.cli --help
 ```
 
 ### Secure Cleanup Utility
-AI/Copilot/GPT metadata izlerini güvenle taramak ve temizlemek için:
+To securely scan and remove AI/Copilot/GPT metadata traces:
 
 ```powershell
-# Ön izleme (değişiklik yok)
+# Preview mode (no changes)
 python scripts/secure_cleanup.py --preview
 
-# Uygula (yedekli, rapor üretir)
+# Apply (creates backups, generates report)
 python scripts/secure_cleanup.py --force
 ```
 
-- İşlem özeti ve silinen satırlar `cleanup_report.txt` içinde.
-- Yedekler `backup/cleanup_<timestamp>/` altında tutulur.
-- Sonrasında doğrulama:
+- Summary and removed lines are in `cleanup_report.txt`.
+- Backups are kept in `backup/cleanup_<timestamp>/`.
+- Verify afterward:
 
 ```powershell
 pytest -q
@@ -118,6 +118,14 @@ python scripts/final_publish_check.py
 # ✓ Git status and readiness
 ```
 
+### Automated Metadata Cleanup
+Commit and CI pipelines enforce strict prevention, ensuring a fully clean, human-verified codebase.
+
+```powershell
+# Quick automated cleanup
+python scripts/secure_cleanup.py --force
+```
+
 To bypass the pre-commit hook once (not recommended):
 ```bash
 git commit -m "message" --no-verify
@@ -127,8 +135,8 @@ git commit -m "message" --no-verify
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/axiombridge-severitylab.git
-cd axiombridge-severitylab
+git clone https://github.com/DiyarErol/secure-cleanup-toolkit.git
+cd secure-cleanup-toolkit
 
 # Create virtual environment
 python3 -m venv .venv
@@ -459,8 +467,10 @@ chmod +x scripts/*.py
 
 ## 📧 Contact
 
-For questions or issues, please open a [GitHub Issue](https://github.com/yourusername/axiombridge-severitylab/issues).
+For questions or issues, please open a [GitHub Issue](https://github.com/DiyarErol/secure-cleanup-toolkit/issues).
 
 ---
 
 **Happy modeling! 🚀**
+
+

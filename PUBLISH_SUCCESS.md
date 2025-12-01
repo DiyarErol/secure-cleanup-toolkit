@@ -31,7 +31,7 @@ git commit -m "Initial commit: MindForge Event Severity Toolkit"
 ### Step 2: Create GitHub Repository
 
 1. Go to https://github.com/new
-2. Repository name: `MindForge-EventSeverity`
+2. Repository name: `secure-cleanup-toolkit`
 3. Description: `Video-based event severity classification toolkit with 3D ResNet backbone and comprehensive evaluation pipeline`
 4. **Keep "Public"** selected
 5. **DO NOT** initialize with README, .gitignore, or license (already included)
@@ -43,7 +43,7 @@ Replace `USERNAME` with your GitHub username:
 
 ```bash
 git branch -M main
-git remote add origin https://github.com/USERNAME/MindForge-EventSeverity.git
+git remote add origin https://github.com/USERNAME/secure-cleanup-toolkit.git
 git push -u origin main
 ```
 

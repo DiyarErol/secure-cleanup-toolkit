@@ -1,9 +1,9 @@
-# AxiomBridge-SeverityLab Default Configuration
+# Secure Cleanup Toolkit Default Configuration
 # All paths are relative to project root
 
 # Project metadata
 project:
-  name: "axiombridge-severitylab"
+  name: "secure-cleanup-toolkit"
   version: "0.1.0"
   description: "Autonomous risk understanding via video severity classification"
 
@@ -203,7 +203,7 @@ logging:
   # Experiment tracking (optional)
   wandb:
     enabled: false
-    project: "axiombridge-severitylab"
+    project: "secure-cleanup-toolkit"
     entity: null  # your wandb username/team
     tags: []
     notes: ""

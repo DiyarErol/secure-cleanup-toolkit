@@ -41,7 +41,7 @@
 
 1. **Create GitHub Repository**:
    - Go to https://github.com/new
-   - Name: `MindForge-EventSeverity`
+   - Name: `secure-cleanup-toolkit`
    - Description: `Production-grade severity classification for autonomous risk understanding`
    - Public
    - Click: Create repository
@@ -140,11 +140,11 @@ A comprehensive, research-grade framework for video-based severity classificatio
 
 ## 🔗 Quick Links (After Publishing)
 
-- **Repository**: `https://github.com/USERNAME/MindForge-EventSeverity`
-- **Releases**: `https://github.com/USERNAME/MindForge-EventSeverity/releases`
-- **Actions**: `https://github.com/USERNAME/MindForge-EventSeverity/actions`
-- **Issues**: `https://github.com/USERNAME/MindForge-EventSeverity/issues`
-- **Wiki**: `https://github.com/USERNAME/MindForge-EventSeverity/wiki`
+- **Repository**: `https://github.com/USERNAME/secure-cleanup-toolkit`
+- **Releases**: `https://github.com/USERNAME/secure-cleanup-toolkit/releases`
+- **Actions**: `https://github.com/USERNAME/secure-cleanup-toolkit/actions`
+- **Issues**: `https://github.com/USERNAME/secure-cleanup-toolkit/issues`
+- **Wiki**: `https://github.com/USERNAME/secure-cleanup-toolkit/wiki`
 
 ---
 
@@ -154,11 +154,11 @@ A comprehensive, research-grade framework for video-based severity classificatio
 # 1. Initialize Git
 git init
 git add -A
-git commit -m "Initial commit: AxiomBridge-SeverityLab v1.0 with secure cleanup automation"
+git commit -m "Initial commit: Secure Cleanup Toolkit v1.0 with secure cleanup automation"
 
 # 2. Connect to GitHub (REPLACE USERNAME!)
 git branch -M main
-git remote add origin https://github.com/USERNAME/MindForge-EventSeverity.git
+git remote add origin https://github.com/USERNAME/secure-cleanup-toolkit.git
 
 # 3. Push
 git push -u origin main

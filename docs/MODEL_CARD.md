@@ -1,11 +1,11 @@
-# Model Card: AxiomBridge-SeverityLab
+# Model Card: Secure Cleanup Toolkit
 
 ## Model Details
 
-**Model Name:** AxiomBridge Severity Classifier  
+**Model Name:** Secure Cleanup Toolkit Classifier  
 **Version:** 0.1.0  
 **Date:** December 2025  
-**Organization:** AxiomBridge Team  
+**Author:** Diyar  
 **Model Type:** Video Classification (3D Convolutional Neural Network)  
 **License:** MIT
 
@@ -294,12 +294,12 @@ Report issues, unexpected behaviors, or suggestions:
 If you use this model in your research, please cite:
 
 ```bibtex
-@software{axiombridge_severity_2025,
-  title={AxiomBridge Severity Classifier},
+@software{secure_cleanup_toolkit_2025,
+   title={Secure Cleanup Toolkit Classifier},
   author={[Your Name/Team]},
   year={2025},
   version={0.1.0},
-  url={https://github.com/yourusername/axiombridge-severitylab}
+   url={https://github.com/DiyarErol/secure-cleanup-toolkit}
 }
 ```
 
@@ -331,7 +331,7 @@ If you use this model in your research, please cite:
 ## Contact
 
 **Maintainers:** [Names and emails]  
-**Organization:** AxiomBridge Team  
+**Author:** Diyar  
 **Website:** [Project website]  
 **Repository:** [GitHub link]
 

@@ -29,3 +29,7 @@ excludes:
   - '__pycache__'
   - 'configs'  # Config files contain patterns by design
   - 'scripts/secure_cleanup.py'  # The cleanup script itself contains patterns
+  - 'scripts/final_verification.py'  # Verification script contains pattern definitions
+  - 'FINAL_VERIFICATION_SUMMARY.md'  # Summary document describes validation process
+  - 'verification_report.txt'  # Report file contains validation results
+  - 'cleanup_report.txt'  # Report file lists detected patterns

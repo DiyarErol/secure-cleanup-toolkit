@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide explains how to track, reproduce, and analyze experiments in the AxiomBridge-SeverityLab project. Proper experiment tracking is essential for reproducible research and systematic model development.
+This guide explains how to track, reproduce, and analyze experiments in the Secure Cleanup Toolkit project. Proper experiment tracking is essential for reproducible research and systematic model development.
 
 ## Experiment Tracking Methods
 
@@ -68,7 +68,7 @@ Edit `configs/default.yaml`:
 logging:
   wandb:
     enabled: true
-    project: "axiombridge-severitylab"
+    project: "secure-cleanup-toolkit"
     entity: "your-username"  # or team name
     tags: ["baseline", "resnet3d"]
     notes: "Initial baseline experiment"
@@ -99,7 +99,7 @@ python -m src.cli train --config configs/default.yaml --wandb
 
 **Access Dashboard:**
 
-Visit `https://wandb.ai/your-username/axiombridge-severitylab`
+ Visit `https://wandb.ai/diyar/secure-cleanup-toolkit`
 
 ### 3. TensorBoard (Alternative)
 
@@ -299,7 +299,7 @@ parameters:
 wandb sweep sweep.yaml
 
 # Run agents (can run multiple in parallel)
-wandb agent your-username/axiombridge-severitylab/sweep-id
+wandb agent your-username/secure-cleanup-toolkit/sweep-id
 ```
 
 ### Optuna Integration

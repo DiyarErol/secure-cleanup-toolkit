@@ -1,4 +1,4 @@
-# Release Template — AxiomBridge-SeverityLab
+# Release Template — Secure Cleanup Toolkit
 
 ## 🚀 Version X.Y.Z — [Release Title]
 
@@ -57,8 +57,8 @@
 
 ```bash
 # Clone repository
-git clone https://github.com/USERNAME/MindForge-EventSeverity.git
-cd MindForge-EventSeverity
+git clone https://github.com/USERNAME/secure-cleanup-toolkit.git
+cd secure-cleanup-toolkit
 
 # Setup environment
 py -3.11 -m venv .venv

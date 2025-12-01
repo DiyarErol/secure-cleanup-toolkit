@@ -11,13 +11,13 @@ git status
 
 # 2. Add all files and commit
 git add -A
-git commit -m "Initial commit: AxiomBridge-SeverityLab v1.0 with secure cleanup automation"
+git commit -m "Initial commit: Secure Cleanup Toolkit v1.0 with secure cleanup automation"
 
 # 3. Set default branch
 git branch -M main
 
 # 4. Add GitHub remote (REPLACE USERNAME!)
-git remote add origin https://github.com/USERNAME/MindForge-EventSeverity.git
+git remote add origin https://github.com/USERNAME/secure-cleanup-toolkit.git
 
 # 5. Verify remote
 git remote -v
@@ -34,11 +34,11 @@ git push origin v1.0.0
 
 ```bash
 # Check CI status (should be green)
-# Visit: https://github.com/USERNAME/MindForge-EventSeverity/actions
+# Visit: https://github.com/USERNAME/secure-cleanup-toolkit/actions
 
 # Test local clone
 cd ..
-git clone https://github.com/USERNAME/MindForge-EventSeverity.git test-clone
+git clone https://github.com/USERNAME/secure-cleanup-toolkit.git test-clone
 cd test-clone
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -51,7 +51,7 @@ python scripts/secure_cleanup.py --preview
 
 1. **Create Repository**:
    - Go to: https://github.com/new
-   - Name: `MindForge-EventSeverity`
+   - Name: `secure-cleanup-toolkit`
    - Description: `Production-grade severity classification for autonomous risk understanding`
    - Public
    - DO NOT initialize with README
@@ -70,4 +70,4 @@ python scripts/secure_cleanup.py --preview
 
 ## Done! ✅
 
-Repository URL: `https://github.com/USERNAME/MindForge-EventSeverity`
+Repository URL: `https://github.com/USERNAME/secure-cleanup-toolkit`

@@ -32,7 +32,7 @@ def setup_logging(
     numeric_level = getattr(logging, level.upper(), logging.INFO)
 
     # Create logger
-    logger = logging.getLogger("axiombridge")
+    logger = logging.getLogger("secure_cleanup_toolkit")
     logger.setLevel(numeric_level)
     logger.handlers.clear()  # Remove existing handlers
 
@@ -64,7 +64,7 @@ def setup_logging(
     return logger
 
 
-def get_logger(name: str = "axiombridge", log_dir: str | Path | None = None, level: str = "INFO") -> logging.Logger:
+def get_logger(name: str = "secure_cleanup_toolkit", log_dir: str | Path | None = None, level: str = "INFO") -> logging.Logger:
     """
     Get logger instance by name with optional file logging.
 
