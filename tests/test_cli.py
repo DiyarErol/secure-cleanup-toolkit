@@ -106,11 +106,11 @@ def test_cli_help():
 
     assert exc_info.value.code == 0
 
-
     def test_cli_check_runs(monkeypatch):
         import sys
 
         from src.cli import main
+
         sys.argv = ["cli", "check", "--config", "configs/default.yaml"]
         try:
             main()
@@ -133,14 +133,21 @@ def test_cli_invalid_command(temp_config):
     with pytest.raises(SystemExit):
         main()
 
-
     def test_evaluate_pipeline_runs(monkeypatch):
         import sys
 
         from src.cli import main
+
         # Note: checkpoint path may be created during training; here we only validate command path triggers
         # If checkpoint missing, CLI should raise, so we run evaluate via CLI help check
-        sys.argv = ["cli", "evaluate", "--config", "configs/default.yaml", "--checkpoint", "checkpoints/best.pth"]
+        sys.argv = [
+            "cli",
+            "evaluate",
+            "--config",
+            "configs/default.yaml",
+            "--checkpoint",
+            "checkpoints/best.pth",
+        ]
         try:
             main()
         except SystemExit:

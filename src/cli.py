@@ -21,15 +21,11 @@ def main() -> None:
     preprocess_parser = subparsers.add_parser(
         "preprocess", help="Preprocess videos (extract frames and create splits)"
     )
-    preprocess_parser.add_argument(
-        "--config", type=str, required=True, help="Path to config file"
-    )
+    preprocess_parser.add_argument("--config", type=str, required=True, help="Path to config file")
 
     # Train command
     train_parser = subparsers.add_parser("train", help="Train model")
-    train_parser.add_argument(
-        "--config", type=str, required=True, help="Path to config file"
-    )
+    train_parser.add_argument("--config", type=str, required=True, help="Path to config file")
     train_parser.add_argument(
         "--resume", type=str, default=None, help="Path to checkpoint to resume from"
     )
@@ -42,29 +38,21 @@ def main() -> None:
 
     # Evaluate command
     eval_parser = subparsers.add_parser("evaluate", help="Evaluate model")
-    eval_parser.add_argument(
-        "--config", type=str, required=True, help="Path to config file"
-    )
+    eval_parser.add_argument("--config", type=str, required=True, help="Path to config file")
     eval_parser.add_argument(
         "--checkpoint", type=str, required=True, help="Path to model checkpoint"
     )
 
     # Explain command
-    explain_parser = subparsers.add_parser(
-        "explain", help="Generate explainability visualizations"
-    )
-    explain_parser.add_argument(
-        "--config", type=str, required=True, help="Path to config file"
-    )
+    explain_parser = subparsers.add_parser("explain", help="Generate explainability visualizations")
+    explain_parser.add_argument("--config", type=str, required=True, help="Path to config file")
     explain_parser.add_argument(
         "--checkpoint", type=str, required=True, help="Path to model checkpoint"
     )
 
     # Infer command
     infer_parser = subparsers.add_parser("infer", help="Run inference on videos")
-    infer_parser.add_argument(
-        "--config", type=str, required=True, help="Path to config file"
-    )
+    infer_parser.add_argument("--config", type=str, required=True, help="Path to config file")
     infer_parser.add_argument(
         "--checkpoint", type=str, required=True, help="Path to model checkpoint"
     )
@@ -77,9 +65,7 @@ def main() -> None:
 
     # Check command (environment & data validation)
     check_parser = subparsers.add_parser("check", help="Run environment and data checks")
-    check_parser.add_argument(
-        "--config", type=str, required=True, help="Path to config file"
-    )
+    check_parser.add_argument("--config", type=str, required=True, help="Path to config file")
 
     args = parser.parse_args()
 
@@ -94,6 +80,7 @@ def main() -> None:
     except FileNotFoundError as e:
         print(str(e))
         import sys as _sys
+
         _sys.exit(2)
 
     # Setup logging
@@ -151,6 +138,7 @@ def main() -> None:
             import os
 
             import torch
+
             # Basic environment checks
             cuda = torch.cuda.is_available()
             logger.info(f"CUDA available: {cuda}")
@@ -158,7 +146,9 @@ def main() -> None:
                 logger.info(f"CUDA device count: {torch.cuda.device_count()}")
                 logger.info(f"Current device: {torch.cuda.current_device()}")
             # Config validation
-            data_root = config.get("data", {}).get("root") or config.get("data", {}).get("processed_dir")
+            data_root = config.get("data", {}).get("root") or config.get("data", {}).get(
+                "processed_dir"
+            )
             if not data_root:
                 raise ValueError("Config missing data.root or data.processed_dir")
             if not os.path.exists(data_root):

@@ -56,8 +56,7 @@ class VideoDataset(Dataset):
         # Build file list
         self.samples = self._build_samples()
         logger.info(
-            f"Loaded {len(self.samples)} samples from {split} split "
-            f"({len(labels)} classes)"
+            f"Loaded {len(self.samples)} samples from {split} split " f"({len(labels)} classes)"
         )
 
         # Cache for storing loaded videos
@@ -137,10 +136,10 @@ class VideoDataset(Dataset):
             frames.append(frame)
 
         # Convert to tensor: (T, H, W, C) -> (T, C, H, W)
-        video = np.stack(frames, axis=0)
-        video = torch.from_numpy(video).permute(0, 3, 1, 2).float() / 255.0
+        video_array = np.stack(frames, axis=0)
+        video_tensor = torch.from_numpy(video_array).permute(0, 3, 1, 2).float() / 255.0
 
-        return video
+        return video_tensor
 
     def _sample_frame_indices(self, total_frames: int, num_frames: int) -> list[int]:
         """
@@ -217,13 +216,15 @@ class VideoDataset(Dataset):
         counts = self.get_class_counts()
         total = sum(counts.values())
         weights = torch.tensor(
-            [total / (len(self.labels) * counts[self.idx_to_label[i]])
-             for i in range(len(self.labels))]
+            [
+                total / (len(self.labels) * counts[self.idx_to_label[i]])
+                for i in range(len(self.labels))
+            ]
         )
         return weights
 
 
-def collate_fn(batch):
+def collate_fn(batch: list[tuple[torch.Tensor, int]]) -> tuple[torch.Tensor, torch.Tensor]:
     """
     Custom collate function that pads videos to same temporal length.
 
@@ -299,9 +300,6 @@ def build_dataloaders(
         )
 
         dataloaders[split] = dataloader
-        logger.info(
-            f"{split} dataloader: {len(dataset)} samples, "
-            f"{len(dataloader)} batches"
-        )
+        logger.info(f"{split} dataloader: {len(dataset)} samples, " f"{len(dataloader)} batches")
 
     return dataloaders

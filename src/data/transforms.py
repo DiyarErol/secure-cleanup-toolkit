@@ -89,8 +89,8 @@ class VideoRandomCrop:
             return video
 
         # Random crop position
-        top = torch.randint(0, h - th + 1, (1,)).item()
-        left = torch.randint(0, w - tw + 1, (1,)).item()
+        top = int(torch.randint(0, h - th + 1, (1,)).item())
+        left = int(torch.randint(0, w - tw + 1, (1,)).item())
 
         return video[:, :, top : top + th, left : left + tw]
 
@@ -163,7 +163,7 @@ class TemporalRandomCrop:
         if t <= self.size:
             return video
 
-        start = torch.randint(0, t - self.size + 1, (1,)).item()
+        start = int(torch.randint(0, t - self.size + 1, (1,)).item())
         return video[start : start + self.size]
 
 
@@ -231,9 +231,7 @@ class RandomFrameDrop:
         return video[mask]
 
 
-def get_transforms(
-    config: dict[str, Any], is_train: bool = True
-) -> T.Compose:
+def get_transforms(config: dict[str, Any], is_train: bool = True) -> T.Compose:
     """
     Get video transforms based on config.
 

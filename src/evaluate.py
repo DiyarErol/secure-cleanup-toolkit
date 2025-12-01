@@ -45,9 +45,9 @@ def evaluate_model(
     """
     model.eval()
 
-    all_preds = []
-    all_labels = []
-    all_probs = []
+    all_preds: list[np.ndarray] = []
+    all_labels: list[np.ndarray] = []
+    all_probs: list[np.ndarray] = []
 
     for videos, batch_labels in tqdm(dataloader, desc="Evaluating"):
         videos = videos.to(device)
@@ -61,21 +61,21 @@ def evaluate_model(
         all_labels.extend(batch_labels.cpu().numpy())
         all_probs.extend(probs.cpu().numpy())
 
-    all_preds = np.array(all_preds)
-    all_labels = np.array(all_labels)
-    all_probs = np.array(all_probs)
+    preds_array = np.array(all_preds)
+    labels_array = np.array(all_labels)
+    probs_array = np.array(all_probs)
 
     # Compute metrics
-    accuracy = accuracy_score(all_labels, all_preds)
+    accuracy = accuracy_score(labels_array, preds_array)
 
-    precision_recall_fscore_support(all_labels, all_preds, average=None)
+    precision_recall_fscore_support(labels_array, preds_array, average=None)
     # Per-class and macro metrics
     report = classification_report(
-        all_labels, all_preds, target_names=labels, output_dict=True, zero_division=0
+        labels_array, preds_array, target_names=labels, output_dict=True, zero_division=0
     )
 
     # Confusion matrix
-    cm = confusion_matrix(all_labels, all_preds)
+    cm = confusion_matrix(labels_array, preds_array)
 
     metrics = {
         "accuracy": accuracy,
@@ -83,9 +83,9 @@ def evaluate_model(
         "macro_avg": report["macro avg"],  # type: ignore[index]
         "weighted_avg": report["weighted avg"],  # type: ignore[index]
         "confusion_matrix": cm.tolist(),
-        "predictions": all_preds.tolist(),
-        "labels": all_labels.tolist(),
-        "probabilities": all_probs.tolist(),
+        "predictions": preds_array.tolist(),
+        "labels": labels_array.tolist(),
+        "probabilities": probs_array.tolist(),
     }
 
     # Per-class metrics
@@ -96,9 +96,7 @@ def evaluate_model(
     return metrics
 
 
-def plot_confusion_matrix(
-    cm: np.ndarray, labels: list[str], save_path: Path
-) -> None:
+def plot_confusion_matrix(cm: np.ndarray, labels: list[str], save_path: Path) -> None:
     """
     Plot and save confusion matrix.
 
@@ -134,7 +132,7 @@ def plot_confusion_matrix(
                 j,
                 i,
                 format(cm[i, j], fmt),
-                    # Save classification report CSV
+                # Save classification report CSV
                 ha="center",
                 va="center",
                 color="white" if cm[i, j] > thresh else "black",
@@ -302,7 +300,9 @@ def evaluate(config: dict[str, Any], checkpoint_path: str) -> None:
     metrics_path = output_dir / "metrics.json"
     with open(metrics_path, "w") as f:
         # Remove large arrays for JSON
-        metrics_json = {k: v for k, v in metrics.items() if k not in ["predictions", "labels", "probabilities"]}
+        metrics_json = {
+            k: v for k, v in metrics.items() if k not in ["predictions", "labels", "probabilities"]
+        }
         json.dump(metrics_json, f, indent=2)
 
     logger.info(f"Saved metrics: {metrics_path}")

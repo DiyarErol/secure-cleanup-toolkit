@@ -1,4 +1,4 @@
-=== Secure Cleanup Report (Mon Dec  1 05:08:59 2025) ===
+=== Secure Cleanup Report (Mon Dec  1 05:34:59 2025) ===
 
 Scan patterns:
   - GitHub\s+Copilot(?:\s+Chat)?
@@ -13,10 +13,11 @@ Scan patterns:
   - Gemini|Google\s+AI\s+Studio
   - Midjourney|Leonardo\s*AI|Stable\s*Diffusion
 
-Excluded folders: .git, .pytest_cache, .venv, __pycache__, assets, backup, build, configs, data, dist, media, node_modules, scripts/secure_cleanup.py, venv
+Excluded folders: .git, .pytest_cache, .venv, FINAL_VERIFICATION_SUMMARY.md, __pycache__, assets, backup, build, cleanup_report.txt, configs, data, dist, media, node_modules, scripts/final_verification.py, scripts/secure_cleanup.py, venv, verification_report.txt
 
-✅ cleanup_report.txt
+✅ cleanup_santa2025_workspace.py
 ✅ CONTRIBUTING.md
+✅ DEPLOYMENT_SUCCESS.md
 ✅ publish_report.txt
 ✅ PUBLISH_STATUS.md
 ✅ PUBLISH_SUCCESS.md
@@ -25,7 +26,6 @@ Excluded folders: .git, .pytest_cache, .venv, __pycache__, assets, backup, build
 ✅ README.md
 ✅ SECURE_CLEANUP_SUMMARY.md
 ✅ SECURITY.md
-✅ verification_report.txt
 ✅ .vscode\settings.json
 ✅ .vscode\tasks.json
 ✅ axiombridge_severitylab.egg-info\dependency_links.txt
@@ -38,11 +38,13 @@ Excluded folders: .git, .pytest_cache, .venv, __pycache__, assets, backup, build
 ✅ docs\GIT_WORKFLOW.md
 ✅ docs\MODEL_CARD.md
 ✅ docs\PUBLISH.md
+✅ docs\wiki\CI-CD-Integration.md
+✅ docs\wiki\Configuration-Reference.md
+✅ docs\wiki\Usage-Guide.md
 ✅ notebooks\00_exploration.ipynb
 ✅ scripts\augment_preview.py
 ✅ scripts\extract_frames.py
 ✅ scripts\final_publish_check.py
-✅ scripts\final_verification.py
 ✅ scripts\infer_folder.py
 ✅ src\cli.py
 ✅ src\evaluate.py
@@ -60,7 +62,7 @@ Excluded folders: .git, .pytest_cache, .venv, __pycache__, assets, backup, build
 ✅ tests\test_yaml_schema.py
 ✅ tests\schema\default_schema.py
 
-Total processed files: 44
+Total processed files: 46
 Total removed lines: 0
 
 === Post-run validation ===

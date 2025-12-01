@@ -64,7 +64,9 @@ def setup_logging(
     return logger
 
 
-def get_logger(name: str = "secure_cleanup_toolkit", log_dir: str | Path | None = None, level: str = "INFO") -> logging.Logger:
+def get_logger(
+    name: str = "secure_cleanup_toolkit", log_dir: str | Path | None = None, level: str = "INFO"
+) -> logging.Logger:
     """
     Get logger instance by name with optional file logging.
 

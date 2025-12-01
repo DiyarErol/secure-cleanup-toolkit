@@ -2,7 +2,7 @@
 
 **Production-grade severity classification for autonomous risk understanding**
 
-[![CI](https://github.com/USERNAME/secure-cleanup-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/USERNAME/secure-cleanup-toolkit/actions)
+[![CI](https://github.com/DiyarErol/secure-cleanup-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/DiyarErol/secure-cleanup-toolkit/actions)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -12,11 +12,11 @@ A comprehensive, research-grade framework for video-based severity classificatio
 
 ## 🎯 Project Overview
 
-**Domain:** Autonomous Risk Understanding  
-**Primary Modality:** Video (with hooks for Audio/Text)  
-**Classification Task:** 3-class severity prediction  
-**Labels:** Stable / Critical / Terminal  
-**Framework:** PyTorch (TensorFlow-ready architecture)  
+**Domain:** Autonomous Risk Understanding
+**Primary Modality:** Video (with hooks for Audio/Text)
+**Classification Task:** 3-class severity prediction
+**Labels:** Stable / Critical / Terminal
+**Framework:** PyTorch (TensorFlow-ready architecture)
 **Supported OS:** Windows, macOS, Linux
 
 ## 📋 Features
@@ -41,7 +41,7 @@ A comprehensive, research-grade framework for video-based severity classificatio
 
 #### Windows (PowerShell)
 
-```powershell
+````powershell
 # Clone the repository
 git clone https://github.com/DiyarErol/secure-cleanup-toolkit.git
 cd secure-cleanup-toolkit
@@ -59,7 +59,7 @@ To enable CUDA acceleration:
 ```powershell
 # Windows (CUDA 12.1 example)
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-```
+````
 
 ```bash
 # Linux / macOS (MPS)
@@ -72,13 +72,15 @@ Run a quick check:
 python -m src.cli check --config configs/default.yaml
 ```
 
-
 # Install development dependencies (optional)
+
 pip install -e ".[dev]"
 
 # Verify installation
+
 python -m src.cli --help
-```
+
+````
 
 ### Secure Cleanup Utility
 To securely scan and remove AI/Copilot/GPT metadata traces:
@@ -89,7 +91,7 @@ python scripts/secure_cleanup.py --preview
 
 # Apply (creates backups, generates report)
 python scripts/secure_cleanup.py --force
-```
+````
 
 - Summary and removed lines are in `cleanup_report.txt`.
 - Backups are kept in `backup/cleanup_<timestamp>/`.
@@ -101,6 +103,7 @@ ruff check .
 ```
 
 #### Automated Checks
+
 - **Pre-commit hook**: Commits are blocked if AI/Copilot/GPT traces are detected.
 - **CI pipelines**: Jobs fail if cleanup findings remain unaddressed.
 - **Configuration**: Patterns and excludes can be customized in `configs/cleanup.yaml`.
@@ -119,6 +122,7 @@ python scripts/final_publish_check.py
 ```
 
 ### Automated Metadata Cleanup
+
 Commit and CI pipelines enforce strict prevention, ensuring a fully clean, human-verified codebase.
 
 ```powershell
@@ -127,6 +131,7 @@ python scripts/secure_cleanup.py --force
 ```
 
 To bypass the pre-commit hook once (not recommended):
+
 ```bash
 git commit -m "message" --no-verify
 ```
@@ -270,6 +275,7 @@ python -m src.cli train --config configs/default.yaml --resume checkpoints/last.
 ```
 
 **Training Options:**
+
 - Mixed precision training (FP16) enabled by default for speed
 - Early stopping on validation loss (patience=10 epochs)
 - Automatic checkpointing (best + last)
@@ -319,12 +325,12 @@ Example snippet:
 
 ```yaml
 data:
-  labels: ['stable', 'critical', 'terminal']
+  labels: ["stable", "critical", "terminal"]
   fps: 10
   resolution: [224, 224]
 
 model:
-  backbone: 'resnet3d_18'
+  backbone: "resnet3d_18"
   num_classes: 3
   dropout: 0.5
 
@@ -332,8 +338,8 @@ training:
   batch_size: 8
   learning_rate: 1e-4
   epochs: 50
-  optimizer: 'adamw'
-  scheduler: 'cosine'
+  optimizer: "adamw"
+  scheduler: "cosine"
 ```
 
 ## 🧪 Testing
@@ -370,6 +376,7 @@ isort src/ tests/
 ### VS Code Tasks
 
 Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS) and select:
+
 - **Tasks: Run Task** → **Run Tests**
 - **Tasks: Run Task** → **Lint**
 - **Tasks: Run Task** → **Train Model**
@@ -415,6 +422,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) for deta
 ### Issue: `ModuleNotFoundError: No module named 'src'`
 
 **Solution:** Make sure you installed in editable mode:
+
 ```bash
 pip install -e .
 ```
@@ -422,6 +430,7 @@ pip install -e .
 ### Issue: CUDA out of memory
 
 **Solutions:**
+
 - Reduce `batch_size` in config (e.g., 8 → 4)
 - Reduce video resolution (e.g., 224 → 112)
 - Enable gradient accumulation (set `gradient_accumulation_steps: 2`)
@@ -433,6 +442,7 @@ pip install -e .
 ### Issue: Slow training on CPU
 
 **Solution:** Training on CPU is supported but slow. Consider:
+
 - Using a GPU (CUDA)
 - Reducing model size (smaller backbone)
 - Decreasing number of frames per video
@@ -440,6 +450,7 @@ pip install -e .
 ### Windows-specific: PowerShell execution policy error
 
 **Solution:**
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
@@ -447,6 +458,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ### macOS-specific: SSL certificate error
 
 **Solution:**
+
 ```bash
 /Applications/Python\ 3.10/Install\ Certificates.command
 ```
@@ -454,6 +466,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ### Linux-specific: Permission denied on scripts
 
 **Solution:**
+
 ```bash
 chmod +x scripts/*.py
 ```
@@ -472,5 +485,3 @@ For questions or issues, please open a [GitHub Issue](https://github.com/DiyarEr
 ---
 
 **Happy modeling! 🚀**
-
-

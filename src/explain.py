@@ -84,9 +84,7 @@ class GradCAM:
         return cam.squeeze().cpu().numpy()
 
 
-def overlay_heatmap(
-    frame: np.ndarray, heatmap: np.ndarray, alpha: float = 0.5
-) -> np.ndarray:
+def overlay_heatmap(frame: np.ndarray, heatmap: np.ndarray, alpha: float = 0.5) -> np.ndarray:
     """
     Overlay heatmap on frame.
 
@@ -254,12 +252,14 @@ def explain(config: dict[str, Any], checkpoint_path: str) -> None:
                 if sample_count >= max_samples:
                     break
 
-                video = videos[i: i + 1]  # (1, T, C, H, W)
+                video = videos[i : i + 1]  # (1, T, C, H, W)
                 true_label = batch_labels[i].item()
                 pred_label = preds[i].item()
 
                 # Select frames to visualize (evenly spaced)
-                frame_indices = np.linspace(0, num_frames - 1, num_frames_to_viz, dtype=int).tolist()
+                frame_indices = np.linspace(
+                    0, num_frames - 1, num_frames_to_viz, dtype=int
+                ).tolist()
 
                 # Generate explanation
                 explain_video(

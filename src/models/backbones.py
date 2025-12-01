@@ -1,6 +1,5 @@
 """Video model backbones (3D-ResNet, SlowFast, TimeSformer stubs)."""
 
-
 import torch
 import torch.nn as nn
 import torchvision.models.video as video_models
@@ -10,9 +9,7 @@ from src.utils.logging import get_logger
 logger = get_logger(__name__)
 
 
-def get_backbone(
-    name: str, pretrained: bool = True, num_classes: int = 3
-) -> tuple[nn.Module, int]:
+def get_backbone(name: str, pretrained: bool = True, num_classes: int = 3) -> tuple[nn.Module, int]:
     """
     Get video backbone model.
 
