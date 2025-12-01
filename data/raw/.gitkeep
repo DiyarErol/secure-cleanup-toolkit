@@ -1,0 +1,13 @@
+# This file ensures the raw data directory is tracked by git
+# Place your original, immutable video files here organized by class:
+# 
+# raw/
+# ├── stable/
+# │   ├── video001.mp4
+# │   └── video002.mp4
+# ├── critical/
+# │   ├── video003.mp4
+# │   └── video004.mp4
+# └── terminal/
+#     ├── video005.mp4
+#     └── video006.mp4

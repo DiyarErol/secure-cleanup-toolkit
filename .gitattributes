@@ -1,0 +1,60 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Python files
+*.py text eol=lf
+*.pyx text eol=lf
+*.pyi text eol=lf
+
+# Configuration files
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mp4 binary
+*.avi binary
+*.mov binary
+*.mkv binary
+*.webm binary
+*.mp3 binary
+*.wav binary
+*.flac binary
+*.pt binary
+*.pth binary
+*.h5 binary
+*.onnx binary
+*.pb binary
+*.pkl binary
+*.pickle binary
+*.npy binary
+*.npz binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+
+# Jupyter notebooks (treat as binary for merge)
+*.ipynb binary merge=union

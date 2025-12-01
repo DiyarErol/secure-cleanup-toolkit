@@ -1,0 +1,220 @@
+# AxiomBridge-SeverityLab Default Configuration
+# All paths are relative to project root
+
+# Project metadata
+project:
+  name: "axiombridge-severitylab"
+  version: "0.1.0"
+  description: "Autonomous risk understanding via video severity classification"
+
+# Random seed for reproducibility (set to null for non-deterministic)
+seed: 42
+
+# Data configuration
+data:
+  # Label definitions (must match folder names in raw data)
+  labels:
+    - stable
+    - critical
+    - terminal
+  # New root for processed dataset and dynamic settings
+  root: "data/processed"
+  fps: 8
+  image_size: 224
+  num_classes: 3
+  class_names: ["Stable", "Critical", "Terminal"]
+  
+  # Number of classes
+  num_classes: 3
+  
+  # Data paths (relative to project root)
+  raw_dir: "data/raw"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  
+  # Train/val/test split ratios (must sum to 1.0)
+  split:
+    train: 0.8
+    val: 0.1
+    test: 0.1
+  
+  # Video preprocessing
+  preprocessing:
+    # Frames per second to extract
+    fps: 10
+    # Target resolution [height, width]
+    resolution: [224, 224]
+    # Number of frames per video clip (uniform sampling)
+    num_frames: 16
+    # Temporal sampling strategy: 'uniform', 'random', 'segment'
+    temporal_sampling: "uniform"
+    # Normalization (ImageNet stats)
+    normalize:
+      mean: [0.485, 0.456, 0.406]
+      std: [0.229, 0.224, 0.225]
+  
+  # Data augmentation (training only)
+  augmentation:
+    enabled: true
+    # Spatial augmentations
+    horizontal_flip: 0.5
+    vertical_flip: 0.0
+    random_crop: true
+    color_jitter:
+      brightness: 0.2
+      contrast: 0.2
+      saturation: 0.2
+      hue: 0.1
+    # Temporal augmentations
+    temporal_jitter: 0.1  # random shift in frame selection
+    random_frame_drop: 0.1  # probability of dropping random frames
+  
+  # DataLoader settings
+  dataloader:
+    batch_size: 4
+    num_workers: 0
+    pin_memory: true
+    prefetch_factor: 2
+
+# Model configuration
+model:
+  # Backbone architecture: 'resnet3d_18', 'resnet3d_34', 'slowfast', 'timesformer'
+  backbone: "resnet3d_18"
+  
+  # Pretrained weights
+  pretrained: true
+  
+  # Model-specific parameters
+  hidden_dim: 512
+  dropout: 0.5
+  
+  # Loss function: 'cross_entropy', 'focal_loss'
+  loss:
+    type: "cross_entropy"
+    # Class weights (null for balanced, or list of weights per class)
+    class_weights: null
+    # Focal loss parameters (if type='focal_loss')
+    focal_alpha: 0.25
+    focal_gamma: 2.0
+
+# Training configuration
+training:
+  # Number of epochs
+  epochs: 50
+  
+  # Optimizer: 'adamw', 'adam', 'sgd'
+  optimizer:
+    type: "adamw"
+    learning_rate: 1.0e-4
+    weight_decay: 1.0e-4
+    # SGD-specific
+    momentum: 0.9
+    nesterov: true
+  
+  # Learning rate scheduler: 'cosine', 'step', 'reduce_on_plateau', 'none'
+  scheduler:
+    type: "cosine"
+    # CosineAnnealingLR parameters
+    T_max: 50
+    eta_min: 1.0e-6
+    # StepLR parameters
+    step_size: 10
+    gamma: 0.1
+    # ReduceLROnPlateau parameters
+    patience: 5
+    factor: 0.5
+  
+  # Mixed precision training (FP16)
+  mixed_precision: false
+  
+  # Gradient accumulation steps
+  gradient_accumulation_steps: 1
+  
+  # Gradient clipping (null to disable)
+  gradient_clip_norm: 1.0
+  
+  # Early stopping
+  early_stopping:
+    enabled: true
+    patience: 3
+    metric: "val_loss"  # 'val_loss' or 'val_acc'
+    mode: "min"  # 'min' for loss, 'max' for accuracy
+  
+  # Checkpointing
+  checkpoint:
+    save_dir: "checkpoints"
+    save_best: true
+    save_last: true
+    # Save every N epochs (null to disable)
+    save_freq: null
+    # New options
+    save_interval: 2
+    save_best_only: true
+    monitor_metric: "val_loss"
+
+# Evaluation configuration
+evaluation:
+  # Metrics to compute
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+    - confusion_matrix
+    - pr_curve
+  
+  # Per-class metrics
+  per_class_metrics: true
+  
+  # Output directory for evaluation results
+  output_dir: "reports"
+  
+  # Generate HTML report
+  generate_html: true
+
+# Explainability configuration
+explainability:
+  # Method: 'gradcam', 'saliency', 'integrated_gradients'
+  method: "gradcam"
+  
+  # Target layer for Grad-CAM (null for auto-detection)
+  target_layer: null
+  
+  # Number of frames to visualize per video
+  num_frames_to_visualize: 5
+  
+  # Output directory
+  output_dir: "reports/explainability"
+
+# Logging configuration
+logging:
+  # Log directory
+  log_dir: "logs"
+  
+  # Log level: 'DEBUG', 'INFO', 'WARNING', 'ERROR'
+  level: "INFO"
+  
+  # Log to file
+  log_to_file: true
+  
+  # Log to console
+  log_to_console: true
+  
+  # Experiment tracking (optional)
+  wandb:
+    enabled: false
+    project: "axiombridge-severitylab"
+    entity: null  # your wandb username/team
+    tags: []
+    notes: ""
+
+# Hardware configuration
+hardware:
+  # Device: 'cuda', 'cpu', 'mps' (Apple Silicon), 'auto'
+  device: "auto"
+  
+  # GPU IDs to use (for multi-GPU)
+  gpu_ids: [0]
+  
+  # Number of threads for CPU
+  num_threads: 4

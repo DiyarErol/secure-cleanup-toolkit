@@ -1,0 +1,31 @@
+# Secure Cleanup Configuration
+# Customize patterns and excludes for scripts/secure_cleanup.py
+
+patterns:
+  - 'GitHub\s+Copilot(?:\s+Chat)?'
+  - 'Copilot\s+Chat'
+  - 'ChatGPT'
+  - 'GPT[-\s]?[45]'
+  - 'AI[-\s]?generated'
+  - 'AI[-\s]?assisted'
+  - 'Generated\s+by'
+  - 'OpenAI'
+  - 'Anthropic|Claude'
+  - 'Gemini|Google\s+AI\s+Studio'
+  - 'Midjourney|Leonardo\s*AI|Stable\s*Diffusion'
+
+excludes:
+  - '.git'
+  - 'node_modules'
+  - 'venv'
+  - '.venv'
+  - 'data'
+  - 'dist'
+  - 'build'
+  - 'assets'
+  - 'media'
+  - 'backup'
+  - '.pytest_cache'
+  - '__pycache__'
+  - 'configs'  # Config files contain patterns by design
+  - 'scripts/secure_cleanup.py'  # The cleanup script itself contains patterns

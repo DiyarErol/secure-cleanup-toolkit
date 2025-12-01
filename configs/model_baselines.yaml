@@ -1,0 +1,163 @@
+# Model Baseline Configurations
+# Extends or overrides settings from default.yaml
+
+# Baseline 1: 3D ResNet-18
+resnet3d_18:
+  model:
+    backbone: "resnet3d_18"
+    pretrained: true
+    hidden_dim: 512
+    dropout: 0.5
+  training:
+    epochs: 50
+    optimizer:
+      type: "adamw"
+      learning_rate: 1.0e-4
+    scheduler:
+      type: "cosine"
+  data:
+    dataloader:
+      batch_size: 8
+
+# Baseline 2: 3D ResNet-34 (larger capacity)
+resnet3d_34:
+  model:
+    backbone: "resnet3d_34"
+    pretrained: true
+    hidden_dim: 512
+    dropout: 0.5
+  training:
+    epochs: 60
+    optimizer:
+      type: "adamw"
+      learning_rate: 5.0e-5
+    scheduler:
+      type: "cosine"
+  data:
+    dataloader:
+      batch_size: 4  # Reduced for larger model
+
+# Baseline 3: SlowFast (two-pathway)
+slowfast:
+  model:
+    backbone: "slowfast"
+    pretrained: true
+    hidden_dim: 2048
+    dropout: 0.5
+  data:
+    preprocessing:
+      num_frames: 32  # SlowFast needs more frames
+    dataloader:
+      batch_size: 4
+  training:
+    epochs: 60
+    optimizer:
+      type: "sgd"
+      learning_rate: 1.0e-3
+      momentum: 0.9
+    scheduler:
+      type: "step"
+      step_size: 20
+      gamma: 0.1
+    mixed_precision: true
+
+# Baseline 4: TimeSformer (transformer-based)
+timesformer:
+  model:
+    backbone: "timesformer"
+    pretrained: true
+    hidden_dim: 768
+    dropout: 0.1
+  data:
+    preprocessing:
+      num_frames: 8  # Transformers can handle fewer frames
+      resolution: [224, 224]
+    dataloader:
+      batch_size: 4
+  training:
+    epochs: 50
+    optimizer:
+      type: "adamw"
+      learning_rate: 5.0e-5
+      weight_decay: 0.05
+    scheduler:
+      type: "cosine"
+    gradient_clip_norm: 1.0
+    mixed_precision: true
+
+# Baseline 5: Lightweight for quick experiments
+resnet3d_18_fast:
+  model:
+    backbone: "resnet3d_18"
+    pretrained: true
+    hidden_dim: 256
+    dropout: 0.3
+  data:
+    preprocessing:
+      fps: 5  # Lower FPS
+      resolution: [112, 112]  # Smaller resolution
+      num_frames: 8
+    dataloader:
+      batch_size: 16
+  training:
+    epochs: 30
+    optimizer:
+      type: "adamw"
+      learning_rate: 1.0e-3
+    scheduler:
+      type: "cosine"
+    mixed_precision: true
+
+# Baseline 6: Heavy regularization (for small datasets)
+resnet3d_18_regularized:
+  model:
+    backbone: "resnet3d_18"
+    pretrained: true
+    hidden_dim: 512
+    dropout: 0.7  # High dropout
+  data:
+    augmentation:
+      enabled: true
+      horizontal_flip: 0.5
+      color_jitter:
+        brightness: 0.3
+        contrast: 0.3
+        saturation: 0.3
+        hue: 0.15
+      temporal_jitter: 0.2
+      random_frame_drop: 0.2
+    dataloader:
+      batch_size: 8
+  training:
+    epochs: 80
+    optimizer:
+      type: "adamw"
+      learning_rate: 5.0e-5
+      weight_decay: 1.0e-3  # High weight decay
+    scheduler:
+      type: "cosine"
+    early_stopping:
+      enabled: true
+      patience: 15
+
+# Baseline 7: Focal loss for imbalanced data
+resnet3d_18_focal:
+  model:
+    backbone: "resnet3d_18"
+    pretrained: true
+    hidden_dim: 512
+    dropout: 0.5
+    loss:
+      type: "focal_loss"
+      focal_alpha: 0.25
+      focal_gamma: 2.0
+  training:
+    epochs: 50
+    optimizer:
+      type: "adamw"
+      learning_rate: 1.0e-4
+    scheduler:
+      type: "cosine"
+  data:
+    dataloader:
+      batch_size: 8
