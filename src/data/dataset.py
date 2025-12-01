@@ -56,7 +56,7 @@ class VideoDataset(Dataset):
         # Build file list
         self.samples = self._build_samples()
         logger.info(
-            f"Loaded {len(self.samples)} samples from {split} split " f"({len(labels)} classes)"
+            f"Loaded {len(self.samples)} samples from {split} split ({len(labels)} classes)"
         )
 
         # Cache for storing loaded videos
@@ -300,6 +300,6 @@ def build_dataloaders(
         )
 
         dataloaders[split] = dataloader
-        logger.info(f"{split} dataloader: {len(dataset)} samples, " f"{len(dataloader)} batches")
+        logger.info(f"{split} dataloader: {len(dataset)} samples, {len(dataloader)} batches")
 
     return dataloaders

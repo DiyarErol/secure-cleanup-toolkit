@@ -82,7 +82,7 @@ class VideoRandomCrop:
         Returns:
             Cropped video tensor
         """
-        t, c, h, w = video.shape
+        _, _, h, w = video.shape
         th, tw = self.size
 
         if h == th and w == tw:
