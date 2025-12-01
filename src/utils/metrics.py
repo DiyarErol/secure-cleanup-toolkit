@@ -124,7 +124,8 @@ def compute_model_flops(
                 _ = model(dummy_input)
 
     # Extract FLOPs
-    total_flops = sum(evt.flops for evt in prof.events() if evt.flops is not None)
+    events = prof.events()
+    total_flops = sum(evt.flops for evt in events if evt.flops is not None) if events else 0
 
     # Model statistics
     total_params = sum(p.numel() for p in model.parameters())

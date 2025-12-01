@@ -1,4 +1,4 @@
-=== Secure Cleanup Report (Mon Dec  1 07:57:53 2025) ===
+=== Secure Cleanup Report (Mon Dec  1 08:47:48 2025) ===
 
 Scan patterns:
   - GitHub\s+Copilot(?:\s+Chat)?
@@ -1990,6 +1990,7 @@ Excluded folders: .git, .pytest_cache, .venv, FINAL_VERIFICATION_SUMMARY.md, __p
 ✅ axiombridge_severitylab.egg-info\requires.txt
 ✅ axiombridge_severitylab.egg-info\SOURCES.txt
 ✅ axiombridge_severitylab.egg-info\top_level.txt
+✅ docs\ADVANCED_USAGE.md
 ✅ docs\DATASET_CARD.md
 ✅ docs\ETHICS.md
 ✅ docs\EXPERIMENTS.md
@@ -1999,6 +2000,7 @@ Excluded folders: .git, .pytest_cache, .venv, FINAL_VERIFICATION_SUMMARY.md, __p
 ✅ docs\wiki\CI-CD-Integration.md
 ✅ docs\wiki\Configuration-Reference.md
 ✅ docs\wiki\Usage-Guide.md
+✅ htmlcov\status.json
 ✅ notebooks\00_exploration.ipynb
 ✅ scripts\augment_preview.py
 ✅ scripts\extract_frames.py
@@ -2015,16 +2017,22 @@ Excluded folders: .git, .pytest_cache, .venv, FINAL_VERIFICATION_SUMMARY.md, __p
 ✅ src\__init__.py
 ✅ src\models\backbones.py
 ✅ src\models\__init__.py
+✅ src\utils\export.py
 ✅ src\utils\io.py
 ✅ src\utils\logging.py
+✅ src\utils\metrics.py
 ✅ src\utils\seed.py
+✅ src\utils\validation.py
+✅ src\utils\visualization.py
 ✅ src\utils\__init__.py
 ✅ tests\test_cli.py
+✅ tests\test_metrics.py
 ✅ tests\test_transforms.py
+✅ tests\test_validation.py
 ✅ tests\test_yaml_schema.py
 ✅ tests\schema\default_schema.py
 
-Total processed files: 2008
+Total processed files: 2016
 Total removed lines: 0
 
 === Post-run validation ===

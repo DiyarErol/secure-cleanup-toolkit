@@ -1,6 +1,6 @@
 # Secure Cleanup Toolkit
 
-**Production-grade severity classification for autonomous risk understanding**
+> Production-grade severity classification for autonomous risk understanding
 
 [![CI](https://github.com/DiyarErol/secure-cleanup-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/DiyarErol/secure-cleanup-toolkit/actions)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -72,17 +72,20 @@ Run a quick check:
 python -m src.cli check --config configs/default.yaml
 ```
 
-# Install development dependencies (optional)
+## Install development dependencies (optional)
 
+```bash
 pip install -e ".[dev]"
+```
 
-# Verify installation
+## Verify installation
 
+```bash
 python -m src.cli --help
-
-````
+```
 
 ### Secure Cleanup Utility
+
 To securely scan and remove AI/Copilot/GPT metadata traces:
 
 ```powershell
@@ -91,7 +94,7 @@ python scripts/secure_cleanup.py --preview
 
 # Apply (creates backups, generates report)
 python scripts/secure_cleanup.py --force
-````
+```
 
 - Summary and removed lines are in `cleanup_report.txt`.
 - Backups are kept in `backup/cleanup_<timestamp>/`.
@@ -102,7 +105,7 @@ pytest -q
 ruff check .
 ```
 
-#### Automated Checks
+### Automated Checks
 
 - **Pre-commit hook**: Commits are blocked if AI/Copilot/GPT traces are detected.
 - **CI pipelines**: Jobs fail if cleanup findings remain unaddressed.
@@ -160,7 +163,7 @@ python -m src.cli --help
 
 ## 📁 Project Structure
 
-```
+```text
 .
 ├── README.md                  # This file
 ├── LICENSE                    # MIT License
@@ -213,7 +216,7 @@ python -m src.cli check --config configs/default.yaml
 
 Expected output:
 
-```
+```text
 ✅ PyTorch 2.9.1
 ✅ CUDA available: True
 ✅ AMP enabled: True
@@ -227,7 +230,7 @@ Expected output:
 
 Place your raw video files in `data/raw/` organized by class:
 
-```
+```text
 data/raw/
 ├── stable/
 │   ├── video001.mp4
@@ -484,4 +487,4 @@ For questions or issues, please open a [GitHub Issue](https://github.com/DiyarEr
 
 ---
 
-**Happy modeling! 🚀**
+Happy modeling! 🚀

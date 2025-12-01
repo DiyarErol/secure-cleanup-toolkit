@@ -129,7 +129,7 @@ class VideoColorJitter:
             Jittered video tensor
         """
         # Apply same jitter to all frames
-        t, c, h, w = video.shape
+        t, _, _, _ = video.shape
         jittered = []
         for i in range(t):
             frame = video[i]
