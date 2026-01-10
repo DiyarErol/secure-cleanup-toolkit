@@ -84,26 +84,7 @@ pip install -e ".[dev]"
 python -m src.cli --help
 ```
 
-### Secure Cleanup Utility
 
-To securely scan and remove AI/Copilot/GPT metadata traces:
-
-```powershell
-# Preview mode (no changes)
-python scripts/secure_cleanup.py --preview
-
-# Apply (creates backups, generates report)
-python scripts/secure_cleanup.py --force
-```
-
-- Summary and removed lines are in `cleanup_report.txt`.
-- Backups are kept in `backup/cleanup_<timestamp>/`.
-- Verify afterward:
-
-```powershell
-pytest -q
-ruff check .
-```
 
 ### Automated Checks
 
