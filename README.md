@@ -399,7 +399,7 @@ Ensure tests pass and code is formatted before submitting.
 
 ## 📝 License
 
-This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+MIT LICENCE
 
 ## 🆘 Troubleshooting
 
